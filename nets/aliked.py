@@ -96,16 +96,11 @@ class ALIKED(nn.Module):
         
         # load pretrained
         if load_pretrained:
-            pretrained_path = osp.join(osp.split(__file__)[0], f'../models/{model_name}.pth')
-            pretrained_path = osp.abspath(pretrained_path)
-            if osp.exists(pretrained_path):
-                print(f'loading {pretrained_path}')
-                state_dict = torch.load(pretrained_path, 'cpu')
-                self.load_state_dict(state_dict, strict=True)
-                self.to(device)
-                self.eval()
-            else:
-                raise FileNotFoundError(f'cannot find pretrained model: {pretrained_path}')        
+            state_dict = torch.hub.load_state_dict_from_url(
+                f"https://github.com/Shiaoming/ALIKED/raw/main/models/{model_name}.pth",
+                map_location="cpu"
+            )
+        self.load_state_dict(state_dict, strict=True)
     
     def extract_dense_map(self, image):
         # Pads images such that dimensions are divisible by
