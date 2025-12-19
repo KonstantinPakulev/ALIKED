@@ -34,7 +34,7 @@ Homepage = "https://github.com/Shiaoming/ALIKED"
 Repository = "https://github.com/Shiaoming/ALIKED"
 
 [tool.setuptools]
-packages = ["nets"]
+packages = ["nets", "custom_ops"]
 
 [tool.setuptools.package-data]
 "*" = ["*.pth"]
