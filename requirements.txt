@@ -1,6 +1,12 @@
-opencv-python
-numpy
-tqdm
-torch
-torchvision
-thop
+# Minimal dependencies for ALIKED core functionality
+# These are the only dependencies required for inference with ALIKED
+# when used as part of the Summertime project
+torch>=1.9.0
+torchvision>=0.10.0
+
+# Optional dependencies for demo scripts and utilities
+# (not required for Summertime integration)
+# opencv-python  # Only needed for demo_pair.py and demo_seq.py
+# numpy  # Already included with torch/torchvision
+# tqdm  # Only needed for demo scripts
+# thop  # Only needed for count_flops.py

@@ -147,7 +147,7 @@ class ALIKED(nn.Module):
         keypoints, kptscores, scoredispersitys = self.dkd(score_map)
         descriptors, offsets = self.desc_head(feature_map, keypoints)
         torch.cuda.synchronize()
-        t1 = time.time()        
+        t1 = time.time()
 
         return {'keypoints': keypoints,  # B N 2
             'descriptors': descriptors,  # B N D
